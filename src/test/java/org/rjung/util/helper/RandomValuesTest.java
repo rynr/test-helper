@@ -2,6 +2,7 @@ package org.rjung.util.helper;
 
 import org.junit.Test;
 
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.junit.Assert.assertThat;
@@ -35,6 +36,31 @@ public class RandomValuesTest {
   public void verifyRandomLongSucceeds() {
     for (int i = 0; i < REPEAT; i++) {
       RandomValues.randomLong();
+    }
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void verifyRandomStringFailsWithNegativeValue() {
+    final int length = -1 - RandomValues.randomInt(99999);
+
+    RandomValues.randomString(length);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void verifyRandomStringFailsWithValue0() {
+    final int length = -1 - RandomValues.randomInt(0);
+
+    RandomValues.randomString(length);
+  }
+
+  @Test
+  public void verifyRandomStringHasRightLength() {
+    for (int i = 0; i < REPEAT; i++) {
+      final int length = RandomValues.randomInt(99999) + 1;
+
+      String result = RandomValues.randomString(length);
+
+      assertThat(result.length(), is(length));
     }
   }
 

@@ -5,6 +5,8 @@ import java.security.SecureRandom;
 public class RandomValues {
 
   private static final SecureRandom RANDOM = new SecureRandom();
+  private static final char[] SYMBOLS =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
 
   private RandomValues() {
     // prevent initialization
@@ -24,7 +26,7 @@ public class RandomValues {
    * Returns a pseudorandom, uniformly distributed {@code int} value between 0 (inclusive) and the
    * specified value (exclusive).
    */
-  public static int randomInt(int maxInt) {
+  public static int randomInt(final int maxInt) {
     return RANDOM.nextInt(maxInt);
   }
 
@@ -37,6 +39,17 @@ public class RandomValues {
     return RANDOM.nextLong();
   }
 
+  public static String randomString(final int length) {
+    if (length < 1)
+      throw new IllegalArgumentException("length < 1: " + length);
+
+    char[] buf = new char[length];
+    for (int i = 0; i < length; ++i)
+      buf[i] = SYMBOLS[randomInt(SYMBOLS.length)];
+
+    return new String(buf);
+  }
+
   /**
    * Returns one {@link Enum}-value of a given {@link Enum}-class uniformly distributed between the
    * different values.
@@ -44,7 +57,7 @@ public class RandomValues {
    * @param klazz
    * @return
    */
-  public static <T extends Enum<T>> T randomEnum(Class<T> klazz) {
+  public static <T extends Enum<T>> T randomEnum(final Class<T> klazz) {
     return klazz.getEnumConstants()[randomInt(klazz.getEnumConstants().length)];
   }
 }
