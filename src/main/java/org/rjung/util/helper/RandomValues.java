@@ -13,7 +13,7 @@ public class RandomValues {
   /**
    * Returns the next pseudorandom, uniformly distributed {@code int} value from a
    * {@link SecureRandom} random number generator's sequence. The general contract of
-   * {@code nextInt} is that one {@code int} value is pseudorandomly generated and returned. All
+   * {@code randomtInt} is that one {@code int} value is pseudorandomly generated and returned. All
    * 2<sup>32</sup> possible {@code int} values are produced with (approximately) equal probability.
    */
   public static int randomInt() {
@@ -26,6 +26,15 @@ public class RandomValues {
    */
   public static int randomInt(int maxInt) {
     return RANDOM.nextInt(maxInt);
+  }
+
+  /**
+   * Returns the next pseudorandom, uniformly distributed {@code long} value from a
+   * {@link SecureRandom} random number generator's sequence. The general contract of
+   * {@code nextLong} is that one {@code long} value is pseudorandomly generated and returned.
+   */
+  public static long randomLong() {
+    return RANDOM.nextLong();
   }
 
   /**

@@ -32,6 +32,13 @@ public class RandomValuesTest {
   }
 
   @Test
+  public void verifyRandomLongSucceeds() {
+    for (int i = 0; i < REPEAT; i++) {
+      RandomValues.randomLong();
+    }
+  }
+
+  @Test
   public void verifyRandomEnumSucceeds() {
     for (int i = 0; i < REPEAT; i++) {
       RandomValues.randomEnum(TestEnum.class);
