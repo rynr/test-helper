@@ -24,5 +24,6 @@ links
  - [Info](https://rynr.github.io/test-helper/)
  - [Github](https://github.com/rynr/test-helper)
  - [Bugs](https://github.com/rynr/test-helper/issues)
+ - [Documentation](https://javadoc.io/doc/org.rjung.util/test-helper)
  - [![Build Status](https://travis-ci.org/rynr/test-helper.svg?branch=master)](https://travis-ci.org/rynr/test-helper)
 
