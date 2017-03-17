@@ -18,6 +18,13 @@ public class RandomValuesTest {
   private final String VALID_LETTER_REGEX = "^[a-zA-Z]{1,}$";
 
   @Test
+  public void verifyRandomBooleanSucceeds() {
+    for (int i = 0; i < REPEAT; i++) {
+      RandomValues.randomBoolean();
+    }
+  }
+
+  @Test
   public void verifyRandomIntSucceeds() {
     for (int i = 0; i < REPEAT; i++) {
       RandomValues.randomInt();

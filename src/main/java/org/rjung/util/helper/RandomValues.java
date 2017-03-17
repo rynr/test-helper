@@ -15,6 +15,14 @@ public class RandomValues {
   }
 
   /**
+   * Returns a pseudorandom, uniformly distributed {@code boolean} value from a {@link SecureRandom}
+   * random number generator's sequence.
+   */
+  public static boolean randomBoolean() {
+    return RANDOM.nextBoolean();
+  }
+
+  /**
    * Returns the next pseudorandom, uniformly distributed {@code int} value from a
    * {@link SecureRandom} random number generator's sequence. The general contract of
    * {@code randomtInt} is that one {@code int} value is pseudorandomly generated and returned. All
